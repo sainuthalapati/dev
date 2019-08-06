@@ -1,6 +1,6 @@
 ---
     - hosts: 172.31.28.167
-      name: play
+      name: play1
       sudo: yes
       tasks:
            - name: installing httpd
