@@ -1,0 +1,22 @@
+---
+    - hosts: 172.31.28.167
+      name: play
+      sudo: yes
+      tasks:
+           - name: installing httpd
+             yum:
+                     name: httpd
+                     state: present
+           - name: start and enable httpd
+             service:
+                        name: httpd
+                        state: started
+                        enabled: True
+           - name: deploy web app
+             copy:
+                src: index.html
+                dest: /var/www/html
+           - name: uninstallind docker
+             yum:
+                     name: docker
+                     state: absent
